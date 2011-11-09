@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 9.00
 # Visual Studio 2005
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udpSender", "udpSender\udpSender.vcproj", "{F7D4FF66-158B-4781-A139-1D9EDFABFCB9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udpReceiver", "udpReceiver\udpReceiver.vcproj", "{77B1511E-A374-4B8E-94DE-7AAE49A30480}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +15,10 @@ Global
 		{F7D4FF66-158B-4781-A139-1D9EDFABFCB9}.Debug|Win32.Build.0 = Debug|Win32
 		{F7D4FF66-158B-4781-A139-1D9EDFABFCB9}.Release|Win32.ActiveCfg = Release|Win32
 		{F7D4FF66-158B-4781-A139-1D9EDFABFCB9}.Release|Win32.Build.0 = Release|Win32
+		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Debug|Win32.ActiveCfg = Debug|Win32
+		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Debug|Win32.Build.0 = Debug|Win32
+		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Release|Win32.ActiveCfg = Release|Win32
+		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

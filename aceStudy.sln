@@ -5,6 +5,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udpSender", "udpSender\udpS
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "udpReceiver", "udpReceiver\udpReceiver.vcproj", "{77B1511E-A374-4B8E-94DE-7AAE49A30480}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "threadPoolEx1", "threadPoolEx1\threadPoolEx1.vcproj", "{26DAFEF8-0A42-4DF6-9BFB-7947E7568F3B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -19,6 +21,10 @@ Global
 		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Debug|Win32.Build.0 = Debug|Win32
 		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Release|Win32.ActiveCfg = Release|Win32
 		{77B1511E-A374-4B8E-94DE-7AAE49A30480}.Release|Win32.Build.0 = Release|Win32
+		{26DAFEF8-0A42-4DF6-9BFB-7947E7568F3B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{26DAFEF8-0A42-4DF6-9BFB-7947E7568F3B}.Debug|Win32.Build.0 = Debug|Win32
+		{26DAFEF8-0A42-4DF6-9BFB-7947E7568F3B}.Release|Win32.ActiveCfg = Release|Win32
+		{26DAFEF8-0A42-4DF6-9BFB-7947E7568F3B}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

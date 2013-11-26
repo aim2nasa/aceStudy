@@ -16,11 +16,13 @@ public:
 
 	int svc (void)
 	{
-		for(int i=0;i<3;i++) {
-			Sleep(3000);
-			aEvt.signal();
-			mEvt.signal();
-		}
+		Sleep(5000);
+		mEvt.signal();
+		//for(int i=0;i<3;i++) {
+		//	Sleep(3000);
+		//	aEvt.signal();
+		//	mEvt.signal();
+		//}
 		return 0;
 	}
 };
@@ -36,11 +38,11 @@ int main(int argc, char *argv[])
 		cout<<"after manualEvent Wait"<<endl;
 	}
 
-	for(int i=0;i<3;i++) {
-		cout<<"before autoEvent Wait"<<endl;
-		aEvt.wait();
-		cout<<"after autoEvent Wait"<<endl;
-	}
+	//for(int i=0;i<3;i++) {
+	//	cout<<"before autoEvent Wait"<<endl;
+	//	aEvt.wait();
+	//	cout<<"after autoEvent Wait"<<endl;
+	//}
 
 	cout<<"end of main"<<endl;
 	return 0;

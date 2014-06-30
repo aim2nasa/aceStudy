@@ -2,12 +2,16 @@
 #define __CSECOND_H__
 
 #include "CBasicTask.h"
+#include <assert.h>
 
 class CSecond : public CBasicTask {
 protected:
 	virtual int process (ACE_Message_Block *mb)
 	{
-		ACE_DEBUG ((LM_DEBUG,ACE_TEXT ("CSecond::proscess()\n")));
+		const char *cp = mb->rd_ptr();
+		assert(cp);
+
+		printf("CSecond::process : %s",cp);
 		return 0;
 	}
 };

@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
 	for(int i=0;i<1;i++) {
 		sprintf(buffer,"message %d\n",i+1);
-		ts.insert(buffer,strlen(buffer));
+		ts.insert(buffer,strlen(buffer)+1);	//NULLÆ÷ÇÔ
 	}
 
 	Sleep(3000);

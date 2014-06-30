@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "stream", "stream\stream.vcp
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aot_ch14_AceStream", "aot_ch14_AceStream\aot_ch14_AceStream.vcproj", "{BD4778E8-EB10-43AB-91D9-EA409E4E6E5A}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "streamWithThreadPool", "streamWithThreadPool\streamWithThreadPool.vcproj", "{58BC43CE-4F2F-4394-A0BD-31D3D873867D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -43,6 +45,10 @@ Global
 		{BD4778E8-EB10-43AB-91D9-EA409E4E6E5A}.Debug|Win32.Build.0 = Debug|Win32
 		{BD4778E8-EB10-43AB-91D9-EA409E4E6E5A}.Release|Win32.ActiveCfg = Release|Win32
 		{BD4778E8-EB10-43AB-91D9-EA409E4E6E5A}.Release|Win32.Build.0 = Release|Win32
+		{58BC43CE-4F2F-4394-A0BD-31D3D873867D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{58BC43CE-4F2F-4394-A0BD-31D3D873867D}.Debug|Win32.Build.0 = Debug|Win32
+		{58BC43CE-4F2F-4394-A0BD-31D3D873867D}.Release|Win32.ActiveCfg = Release|Win32
+		{58BC43CE-4F2F-4394-A0BD-31D3D873867D}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

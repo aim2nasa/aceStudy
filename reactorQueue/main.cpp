@@ -74,13 +74,15 @@ int Message_Handler::svc (void)
 
 int Message_Handler::handle_input (ACE_HANDLE h)
 {
-	ACE_DEBUG ((LM_DEBUG,"(%t) Message_Handler::handle_input(%d)\n",h));
-
-	ACE_Message_Block *mb = 0;
-
+//	ACE_DEBUG ((LM_DEBUG,"(%t) Message_Handler::handle_input(%d)\n",h));
 	assert(this->msg_queue()->message_count()==1);
-	this->getq(mb);
-	mb->release ();
+
+	ACE_Message_Block *pBlock = 0;
+	this->getq(pBlock);
+
+	cout<<"processing :"<<pBlock->rd_ptr()<<endl;
+
+	pBlock->release ();
 	return 0;
 }
 
@@ -93,12 +95,18 @@ public:
 
 	virtual int svc()
 	{
+		char tmp[256];
+		cout<<"Input string and then enter"<<endl;
 		while(true){
-			if(_kbhit()) {
-				if(_getch()=='q') {
+			if(gets(tmp)) {
+				if(strncmp(tmp,"q",1)==0) {
+					cout<<"quit"<<endl;
 					break;
 				}else{
-					m_pTask->putq(new ACE_Message_Block(1));
+					tmp[strlen(tmp)]=0;
+					ACE_Message_Block* pBlock = new ACE_Message_Block(strlen(tmp)+1);
+					pBlock->copy(reinterpret_cast<const char*>(tmp),strlen(tmp)+1);
+					m_pTask->putq(pBlock);
 				}
 			}
 		}

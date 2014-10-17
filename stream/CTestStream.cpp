@@ -11,6 +11,8 @@ CTestStream::CTestStream ()
 
 int CTestStream::open(void *arg,Module *head, Module *tail)
 {
+	this->inherited::open (arg, head, tail);
+
 	Module *endModule;
 	ACE_NEW_RETURN (endModule,Module (ACE_TEXT ("end"),new CEnd()),-1);
 
@@ -23,8 +25,7 @@ int CTestStream::open(void *arg,Module *head, Module *tail)
 	if(this->push (endModule) == -1) ACE_ERROR_RETURN ((LM_ERROR,ACE_TEXT ("Failed to push %p\n"),ACE_TEXT ("end")),-1);
 	if(this->push (secondModule) == -1) ACE_ERROR_RETURN ((LM_ERROR,ACE_TEXT ("Failed to push %p\n"),ACE_TEXT ("second")),-1);
 	if(this->push (firstModule) == -1) ACE_ERROR_RETURN ((LM_ERROR,ACE_TEXT ("Failed to push %p\n"),ACE_TEXT ("first")),-1);
-
-	return this->inherited::open (arg, firstModule, endModule);
+	return 0;
 }
 
 int CTestStream::insert(const char* pBuffer,int nSize)

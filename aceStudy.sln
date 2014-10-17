@@ -19,6 +19,10 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reactor1", "reactor1\reacto
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "reactorQueue", "reactorQueue\reactorQueue.vcproj", "{70FFF09B-FBC3-464E-927A-C35221ABD363}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aot15_client", "aot15_client\aot15_client.vcproj", "{F483A76B-9FB8-43E6-AEE2-37A2F569CEBC}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aot15_server", "aot15_server\aot15_server.vcproj", "{BAC77EBC-21B0-42C7-959D-75217C07AFAC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -61,6 +65,14 @@ Global
 		{70FFF09B-FBC3-464E-927A-C35221ABD363}.Debug|Win32.Build.0 = Debug|Win32
 		{70FFF09B-FBC3-464E-927A-C35221ABD363}.Release|Win32.ActiveCfg = Release|Win32
 		{70FFF09B-FBC3-464E-927A-C35221ABD363}.Release|Win32.Build.0 = Release|Win32
+		{F483A76B-9FB8-43E6-AEE2-37A2F569CEBC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F483A76B-9FB8-43E6-AEE2-37A2F569CEBC}.Debug|Win32.Build.0 = Debug|Win32
+		{F483A76B-9FB8-43E6-AEE2-37A2F569CEBC}.Release|Win32.ActiveCfg = Release|Win32
+		{F483A76B-9FB8-43E6-AEE2-37A2F569CEBC}.Release|Win32.Build.0 = Release|Win32
+		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Debug|Win32.Build.0 = Debug|Win32
+		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Release|Win32.ActiveCfg = Release|Win32
+		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -23,6 +23,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aot15_client", "aot15_clien
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aot15_server", "aot15_server\aot15_server.vcproj", "{BAC77EBC-21B0-42C7-959D-75217C07AFAC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bidirStream", "bidirStream\bidirStream.vcproj", "{F9224704-C4AA-410F-A836-2038F75B05B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -73,6 +75,10 @@ Global
 		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Debug|Win32.Build.0 = Debug|Win32
 		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Release|Win32.ActiveCfg = Release|Win32
 		{BAC77EBC-21B0-42C7-959D-75217C07AFAC}.Release|Win32.Build.0 = Release|Win32
+		{F9224704-C4AA-410F-A836-2038F75B05B2}.Debug|Win32.ActiveCfg = Debug|Win32
+		{F9224704-C4AA-410F-A836-2038F75B05B2}.Debug|Win32.Build.0 = Debug|Win32
+		{F9224704-C4AA-410F-A836-2038F75B05B2}.Release|Win32.ActiveCfg = Release|Win32
+		{F9224704-C4AA-410F-A836-2038F75B05B2}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

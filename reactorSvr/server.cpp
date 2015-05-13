@@ -97,7 +97,8 @@ public:
 
 int ACE_TMAIN(int argc, ACE_TCHAR *argv[])
 {
-	ACE_DEBUG((LM_INFO, "(%t) server start\n"));
+	u_short server_port = argc > 1 ? ACE_OS::atoi(argv[1]) : SERVER_PORT;
+	ACE_DEBUG((LM_INFO, "(%t) server start at port:%d\n",server_port));
 
 	ACE_INET_Addr listen;
 	listen.set(SERVER_PORT);

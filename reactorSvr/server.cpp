@@ -42,22 +42,25 @@ public:
 	//override
 	virtual int handle_input(ACE_HANDLE handle = ACE_INVALID_HANDLE)
 	{
-		ACE_TRACE("Stream_Handler::override");
+		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input start\n"));
 		char buf[1024];
 		ssize_t recv_cnt;
 		if ((recv_cnt = this->peer().recv(buf, 1024)) <= 0)
 			return -1;
+		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input received(%d)\n",recv_cnt));
+
 		ACE_Message_Block *mb;
 		ACE_NEW_RETURN(mb, ACE_Message_Block(buf, recv_cnt), -1);
 		mb->wr_ptr(recv_cnt);
 		this->putq(mb);
+		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input end\n"));
 		return 0;
 	}
 
 	//override
 	virtual int handle_output(ACE_HANDLE handle = ACE_INVALID_HANDLE)
 	{
-		ACE_TRACE("Stream_Handler::handle_output");
+		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_output start\n"));
 		ACE_Message_Block *mb;
 		ACE_Time_Value nowait(ACE_OS::gettimeofday());
 		while (this->getq(mb, &nowait) != -1)
@@ -66,8 +69,11 @@ public:
 			if (send_cnt == -1)
 				ACE_ERROR((LM_ERROR, "[ERROR%T](%N:%l) ### %p\n",
 				"Stream_Handler::handle_output"));
-			else
+			else {
 				mb->rd_ptr(send_cnt);
+				ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_output sent(%d)\n",send_cnt));
+			}
+
 			if (mb->length() > 0)
 			{
 				this->ungetq(mb);
@@ -79,6 +85,8 @@ public:
 			this->reactor()->cancel_wakeup(this, ACE_Event_Handler::WRITE_MASK);
 		else
 			this->reactor()->schedule_wakeup(this, ACE_Event_Handler::WRITE_MASK);
+
+		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_output end\n"));
 		return 0;
 	}
 

@@ -50,8 +50,8 @@ public:
 		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input received(%d)\n",recv_cnt));
 
 		ACE_Message_Block *mb;
-		ACE_NEW_RETURN(mb, ACE_Message_Block(buf, recv_cnt), -1);
-		mb->wr_ptr(recv_cnt);
+		ACE_NEW_RETURN(mb, ACE_Message_Block(recv_cnt), -1);
+		mb->copy(buf, recv_cnt);
 		this->putq(mb);
 		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input end\n"));
 		return 0;

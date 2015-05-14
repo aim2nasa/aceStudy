@@ -10,7 +10,7 @@
 #define SIZE_BUF 256
 
 static char* SERVER_HOST = "127.0.0.1";
-static u_short SERVER_PORT = 19001;
+static u_short SERVER_PORT = 9088;
 
 int main(int argc, char *argv[])
 {

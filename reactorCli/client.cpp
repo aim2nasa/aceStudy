@@ -23,21 +23,21 @@ int main(int argc, char *argv[])
 	else
 		ACE_DEBUG((LM_DEBUG, "(%P|%t) connected to %s \n",remote_addr.get_host_name()));
 
+	int nRtn = 0;
 	char buffer[SIZE_BUF];
 	while (true){
 		std::cout << ": ";
 		std::cin >> buffer;
 
-		if (client_stream.send_n(buffer, SIZE_BUF) == -1) {
-			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "send_n"), 0);
-		}
+		if ((nRtn=client_stream.send_n(buffer, SIZE_BUF)) == -1)
+			ACE_DEBUG((LM_DEBUG, "(%P|%t) Error send_n(%d)\n", nRtn));
 
 		// recv
 		char recv_buff[SIZE_BUF] = { 0 };
-		if (client_stream.recv_n(recv_buff, sizeof(recv_buff)) == -1)
-			ACE_ERROR((LM_ERROR, "%p \n", "Error in recv"));
+		if ((nRtn=client_stream.recv_n(recv_buff, sizeof(recv_buff))) == -1)
+			ACE_ERROR((LM_ERROR, "(%P|%t) Error recv_n(%d)\n",nRtn));
 		else
-			ACE_DEBUG((LM_DEBUG, "Client received: %s \n", recv_buff));
+			ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes received:%s\n", nRtn,recv_buff));
 	}
 
 	ACE_OS::sleep(1);

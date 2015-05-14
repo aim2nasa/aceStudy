@@ -45,8 +45,10 @@ public:
 		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input start\n"));
 		char buf[1024];
 		ssize_t recv_cnt;
-		if ((recv_cnt = this->peer().recv(buf, 1024)) <= 0)
+		if ((recv_cnt = this->peer().recv(buf, 1024)) <= 0) {
+			ACE_Reactor::instance()->end_reactor_event_loop();
 			return -1;
+		}
 		ACE_DEBUG((LM_INFO, "(%t) Stream_Handler::handle_input received(%d)\n",recv_cnt));
 
 		ACE_Message_Block *mb;

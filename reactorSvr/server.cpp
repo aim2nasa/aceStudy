@@ -95,8 +95,7 @@ public:
 	virtual int handle_close(ACE_HANDLE handle, ACE_Reactor_Mask close_mask)
 	{
 		ACE_TRACE("Stream_Handler::handle_close");
-		ACE_DEBUG((LM_INFO, "[DEBUG%T](%N:%l) ### Connection close %s:%u\n",
-			remote_addr_.get_host_addr(), remote_addr_.get_port_number()));
+		ACE_DEBUG((LM_INFO, "Connection close %s:%u\n",remote_addr_.get_host_addr(), remote_addr_.get_port_number()));
 		return super::handle_close(handle, close_mask);
 	}
 

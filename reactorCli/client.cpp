@@ -17,8 +17,6 @@ public:
 	}
 
 	int connect_to_server();
-	int send_to_server();
-	int close();
 
 	ACE_SOCK_Stream client_stream_;
 	ACE_INET_Addr remote_addr_;
@@ -44,15 +42,6 @@ Client::connect_to_server()
 	}
 
 	return 0;
-}
-
-int
-Client::close()
-{
-	if (client_stream_.close() == -1)
-		ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "close"), -1);
-	else
-		return 0;
 }
 
 static char* SERVER_HOST = "127.0.0.1";
@@ -86,7 +75,9 @@ int main(int argc, char *argv[])
 	}
 
 	ACE_OS::sleep(1);
-	client.close();
+
+	if (client.client_stream_.close() == -1)
+		ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "close"), -1);
 
 	return 0;
 }

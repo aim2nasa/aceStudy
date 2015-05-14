@@ -51,8 +51,6 @@ int main(int argc, char *argv[])
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes received:%s\n", nRtn,recv_buff));
 	}
 
-	ACE_OS::sleep(1);
-
 	if (client_stream.close() == -1)
 		ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "close"), -1);
 

@@ -38,16 +38,19 @@ int main(int argc, char *argv[])
 		if (ACE_OS::strcmp(buffer, "q\n")==0)
 			break;
 
-		if ((nRtn=client_stream.send_n(buffer, SIZE_BUF)) == -1)
+		if ((nRtn = client_stream.send_n(buffer, SIZE_BUF)) == -1) {
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) Error send_n(%d)\n", nRtn));
+			break;
+		}
 
 		ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes sent\n", nRtn));
 
 		// recv
 		char recv_buff[SIZE_BUF] = { 0 };
-		if ((nRtn=client_stream.recv_n(recv_buff, sizeof(recv_buff))) == -1)
-			ACE_ERROR((LM_ERROR, "(%P|%t) Error recv_n(%d)\n",nRtn));
-		else
+		if ((nRtn = client_stream.recv_n(recv_buff, sizeof(recv_buff))) == -1) {
+			ACE_ERROR((LM_ERROR, "(%P|%t) Error recv_n(%d)\n", nRtn));
+			break;
+		}else
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes received:%s\n", nRtn,recv_buff));
 	}
 

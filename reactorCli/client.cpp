@@ -30,9 +30,13 @@ int main(int argc, char *argv[])
 
 	int nRtn = 0;
 	char buffer[SIZE_BUF];
+	std::cout << "press q and enter to finish"<<std::endl;
 	while (true){
 		std::cout << ": ";
 		fgets(buffer,sizeof(buffer),stdin);
+
+		if (ACE_OS::strcmp(buffer, "q\n")==0)
+			break;
 
 		if ((nRtn=client_stream.send_n(buffer, SIZE_BUF)) == -1)
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) Error send_n(%d)\n", nRtn));

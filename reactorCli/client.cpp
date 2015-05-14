@@ -5,6 +5,7 @@
 #include "ace/OS_NS_stdio.h" 
 #include "ace/OS_NS_string.h" 
 #include "ace/OS_NS_unistd.h"
+#include "ace/OS_NS_stdlib.h"
 
 #define SIZE_BUF 256
 
@@ -13,8 +14,12 @@ static u_short SERVER_PORT = 19001;
 
 int main(int argc, char *argv[])
 {
+	const char *server_host = argc > 1 ? argv[1] : SERVER_HOST;
+	u_short server_port = argc > 2 ? ACE_OS::atoi(argv[2]) : SERVER_PORT;
+	ACE_DEBUG((LM_INFO, "(%P|%t) server info(addr:%s,port:%d)\n", server_host,server_port));
+
 	ACE_SOCK_Stream client_stream;
-	ACE_INET_Addr remote_addr(SERVER_PORT,SERVER_HOST);
+	ACE_INET_Addr remote_addr(server_port, server_host);
 	ACE_SOCK_Connector connector;
 
 	ACE_DEBUG((LM_DEBUG, "(%P|%t) Starting connect to %s: %d \n",remote_addr.get_host_name(), remote_addr.get_port_number()));

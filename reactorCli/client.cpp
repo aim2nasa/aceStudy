@@ -13,7 +13,6 @@ class Client
 public:
 	Client(char *hostname, int port) :remote_addr_(port, hostname)
 	{
-		data_buf_ = new char[SIZE_BUF];
 	}
 
 	int connect_to_server();
@@ -21,8 +20,6 @@ public:
 	ACE_SOCK_Stream client_stream_;
 	ACE_INET_Addr remote_addr_;
 	ACE_SOCK_Connector connector_;
-
-	char *data_buf_;
 };
 
 int

@@ -33,7 +33,7 @@ public:
 		this->msg_queue()->notification_strategy(&noti_);
 		if (this->peer().get_remote_addr(remote_addr_) == 0)
 		{
-			ACE_DEBUG((LM_INFO, "[DEBUG%T](%N:%l) ### New client accepted: %s:%u\n",
+			ACE_DEBUG((LM_INFO, "New client accepted: %s:%u\n",
 				remote_addr_.get_host_addr(), remote_addr_.get_port_number()));
 		}
 		return 0;

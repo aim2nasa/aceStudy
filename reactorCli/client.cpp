@@ -37,6 +37,8 @@ int main(int argc, char *argv[])
 		if ((nRtn=client_stream.send_n(buffer, SIZE_BUF)) == -1)
 			ACE_DEBUG((LM_DEBUG, "(%P|%t) Error send_n(%d)\n", nRtn));
 
+		ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes sent\n", nRtn));
+
 		// recv
 		char recv_buff[SIZE_BUF] = { 0 };
 		if ((nRtn=client_stream.recv_n(recv_buff, sizeof(recv_buff))) == -1)

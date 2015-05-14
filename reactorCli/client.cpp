@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 		if ((nRtn=client_stream.recv_n(recv_buff, sizeof(recv_buff))) == -1)
 			ACE_ERROR((LM_ERROR, "(%P|%t) Error recv_n(%d)\n",nRtn));
 		else
-			ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes received:%sn", nRtn,recv_buff));
+			ACE_DEBUG((LM_DEBUG, "(%P|%t) %dbytes received:%s\n", nRtn,recv_buff));
 	}
 
 	ACE_OS::sleep(1);

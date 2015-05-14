@@ -28,21 +28,16 @@ int main(int argc, char *argv[])
 		std::cout << ": ";
 		std::cin >> buffer;
 
-		int n = 0;
-		n = client_stream.send_n(buffer, SIZE_BUF);
-		if (n == -1) {
+		if (client_stream.send_n(buffer, SIZE_BUF) == -1) {
 			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "send_n"), 0);
 		}
 
 		// recv
 		char recv_buff[SIZE_BUF] = { 0 };
-		n = client_stream.recv_n(recv_buff, sizeof(recv_buff));
-		if (n == -1) {
+		if (client_stream.recv_n(recv_buff, sizeof(recv_buff)) == -1)
 			ACE_ERROR((LM_ERROR, "%p \n", "Error in recv"));
-		}
-		else {
+		else
 			ACE_DEBUG((LM_DEBUG, "Client received: %s \n", recv_buff));
-		}
 	}
 
 	ACE_OS::sleep(1);

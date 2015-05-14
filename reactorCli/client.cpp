@@ -20,7 +20,6 @@ public:
 	int send_to_server();
 	int close();
 
-private:
 	ACE_SOCK_Stream client_stream_;
 	ACE_INET_Addr remote_addr_;
 	ACE_SOCK_Connector connector_;
@@ -48,32 +47,6 @@ Client::connect_to_server()
 }
 
 int
-Client::send_to_server()
-{
-	while (true){
-		std::cout << ": ";
-		std::cin >> data_buf_;
-
-		int n = 0;
-		n = client_stream_.send_n(data_buf_, SIZE_BUF);
-		if (n == -1) {
-			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "send_n"), 0);
-		}
-
-		// recv
-		char recv_buff[SIZE_BUF] = { 0 };
-		n = client_stream_.recv_n(recv_buff, sizeof(recv_buff));
-		if (n == -1) {
-			ACE_ERROR((LM_ERROR, "%p \n", "Error in recv"));
-		}
-		else {
-			ACE_DEBUG((LM_DEBUG, "Client received: %s \n", recv_buff));
-		}
-	}
-	return 0;
-}
-
-int
 Client::close()
 {
 	if (client_stream_.close() == -1)
@@ -89,7 +62,29 @@ int main(int argc, char *argv[])
 {
 	Client client(SERVER_HOST, SERVER_PORT);
 	client.connect_to_server();
-	client.send_to_server();
+
+	char buffer[SIZE_BUF];
+	while (true){
+		std::cout << ": ";
+		std::cin >> buffer;
+
+		int n = 0;
+		n = client.client_stream_.send_n(buffer, SIZE_BUF);
+		if (n == -1) {
+			ACE_ERROR_RETURN((LM_ERROR, "(%P|%t) %p \n", "send_n"), 0);
+		}
+
+		// recv
+		char recv_buff[SIZE_BUF] = { 0 };
+		n = client.client_stream_.recv_n(recv_buff, sizeof(recv_buff));
+		if (n == -1) {
+			ACE_ERROR((LM_ERROR, "%p \n", "Error in recv"));
+		}
+		else {
+			ACE_DEBUG((LM_DEBUG, "Client received: %s \n", recv_buff));
+		}
+	}
+
 	ACE_OS::sleep(1);
 	client.close();
 
